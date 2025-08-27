@@ -1,0 +1,24 @@
+File23;Altitude;Band;Inclination;Launched;Plateform;Sensor
+Cygnss;-;-;-;-;-;-
+Cryosat2;719;-;92;-;Cryosat-2;Siral
+GFO;800;-;108;-;Geosat-2;-
+Haiyang-2B;-;-;-;-;-;-
+Haiyang-2C;-;-;-;-;-;-
+Satellite-database;-;-;-;-;-;-
+Sentinel-1A SAR;-;-;-;-;-;-
+Geosat;800;-;108;-;Geosat;-
+Sentinel-6A;-;-;-;-;-;-
+Sentinel-3B SRAL;814;C Ku;98.6;-;Sentinel-3B;SRAL
+Sentinel-3A SRAL;814;C Ku;98.6;-;Sentinel-3A;SRAL
+Altika;800;Ka;98.55;-;Saral;SARAL
+ERS-2;780;Ku;98.52;-;ERS-2;RA
+Envisat;800;Ku;98.6;-;Envisat;RA
+Haiyang-2A;971;Ku;99.3;-;Hy-2A;DGXX
+Jason-2;1336;Ku;66;-;Jason-2;Poseidon
+ERS-1;780;Ku;98.52;-;ERS-1;RA
+Jason-1;1336;Ku;66;-;Jason-1;Poseidon
+Topex-poseidon;1336;Ku;66;-;Topex;Poseidon
+Jason-3;1336;Ku;66;-;Jason-3;Poseidon
+Sentinel3-A OLCI;814;Visible;98.6;-;Sentinel-3A;-
+VIIRS Suomi NPP;824;Visible NIR;97.1;-;Suomi-NPP;VIIRS
+VIIRS JPSS;833;Visible NIR;98.7;-;JPSS;VIIRS

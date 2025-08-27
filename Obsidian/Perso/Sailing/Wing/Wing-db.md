@@ -1,0 +1,18 @@
+| Provider           | Manufacturer | Model   | Span | Surface | Handles         | Pressure | Price | Material core      | Material spi       | Version     | Available surface    | Weight |
+| ------------------ | ------------ | ------- | ---- | ------- | --------------- | -------- | ----- | ------------------ | ------------------ | ----------- | -------------------- | ------ |
+| [[Duotone float]]  | Duotone      | Float   | 295  | 4       | Boom            | 8.5      | 1000  |                    |                    | 2025        | 3 to 5 every 0.5     | 2.11   |
+| [[Duotone slick]]  | Duotone      | Slick   | 300  | 4       | Boom            | 8.5      |       | Dlab option aluula | Mod3S              | 2025        | 3 to 6 every 0.5     |        |
+| [[Duotone unit]]   | Duotone      | Unit    | 300  | 4       | Bar, Boom       | 8.5      | 1500  | Dlab option aluula | Mod3S              | 2025        | 3 to 6 every 0.5     |        |
+| [[Duotone ventis]] | Duotone      | Ventis  | 398  | 7       | Bar             | 8.5      | 2000  | Dlab option aluula | Mod3S              | 2025        | 7, 8                 | 3.6    |
+| [[AFS Diamond v1]] | AFS          | Diamond | 277  | 4       | Soft            | 8        | 600   | Dacron 160         | Triple rip stop 55 | V1          | 3.4, 4, 5            | 2.2    |
+| [[AFS Diamond v2]] | AFS          | Diamond | 285  | 4       | Bar, Boom       | 8        | 1500  | Dacron 155/dynema  | Triple rip stop 55 | V2          | 3 to 6 every 0.5     | 2.55   |
+| [[AFS DLITE]]      | AFS          | DLITE   | 290  | 4       | Boom, Soft      | 6        | 740   |                    |                    |             | 3 to 5 every 1       | 2.1    |
+| [[Fone strike]]    | Fone         | Strike  | 296  | 4       | Bar, Boom, Soft |          |       | Hitex178           | Techno force       | V5          | 3 to 6 every 0.5     | 2.14   |
+| [[Fone swing]]     | Fone         | Swing   |      | 4       | Bar, Boom, Soft |          |       | Hitex178           | Ht80               | V5          | 3 to 6 every 0.5     |        |
+| [[Gaastra cross]]  | Gaastra      | Cross   | 297  | 4.2     | Bar             | 9        | 1070  | Forcetec Dacron    | Voltnova           | 2024 / 2025 | 3.2 to 6.2 every 0.5 | 2.6    |
+| [[Gaastra poison]] | Gaastra      | Poison  | 304  | 4.2     | Bar             | 9        | 1200  | Forcetec Dacron    | Voltnova           | 2024/2025   | 3.2 to 6.2 every 0.5 | 2.5    |
+| [[Eleveight wfs]]  | Eleveight    | WFS     | 290  | 4       | Boom            | 8        | 1000  |                    |                    | V5          | 2 to 6 every 1       | 2.4    |
+| [[Ozone flux]]     | Ozone        | Flux    | 312  | 4.3     | Bar             |          | 1500  | Dacron 125         |                    | 2023        | 2.4 to 6.5 every 0.6 | 2.4    |
+| [[Ozone fusion]]   | Ozone        | Fusion  | 312  | 4.3     | Bar             |          | 2000  |                    |                    |             | 3.2 to 6.2 every 0.5 |        |
+| [[Takoon ultra]]   | Takoon       | Ultra   | 298  |         | Bar, Boom       | 10       |       |                    |                    |             | 3.5 to 6 every 0.5   |        |
+| [[Amstrong XPS]]   | Amstrong     | XPS     | 295  | 4       | Bar             |          | 1000  |                    | XPS                |             | 3.6 to 5.3 every 0.5 | 3      |
