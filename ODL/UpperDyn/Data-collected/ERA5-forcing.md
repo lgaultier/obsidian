@@ -4,7 +4,8 @@ Type:
 Size: 1400
 Variable:
   - wind
-  - SWH
+  - waves
+  - flux
 Number-of-Files:
 Location: /mnt/data_12t/upperdyn/era5
 Spatial-Resolution: 1/4º

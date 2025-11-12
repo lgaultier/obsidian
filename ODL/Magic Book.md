@@ -247,7 +247,13 @@ sudo apfs-fuse -o uid=1000,gid=1000,allow_other /dev/sdf2 /tmp/key
 ```bash
 rsync -rlptD --progress ./geomatics /deolen/data/events/2025_otc/lehmkhul_backup/
 ```
-
+## External Access
+```
+# sudo iptables -t nat -vnL
+sudo iptables -A INPUT -p tcp --dport 9876 -j ACCEPT
+sudo iptables -A TCP -s 192.168.177.0/24 -p tcp -m tcp --dport 9876 -j ACCEPT
+sudo iptables -A TCP -s 192.34.177.0/24 -p tcp -m tcp --dport 9876 -j ACCEPT
+```
 # Tips MacOS
 ## Install Brew
 ```bash
@@ -275,6 +281,11 @@ sudo mdutil -a -i on
 sudo mdutil -E
 ```
 
+## Backup
+### Git and Obsidian
+```
+ ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian
+```
 ## Shortcuts
 ### Cut / Copy / Paste
 ## Cut, copy, paste, and other common shortcuts

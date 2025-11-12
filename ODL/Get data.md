@@ -11,6 +11,11 @@ copernicusmarine get --dataset-id cmems_obs-sl_glo_phy-ssh_nrt_allsat-l4-duacs-0
 copernicusmarine get --dataset-id cmems_obs-sl_glo_phy-ssh_nrt_c2n-l3-duacs_PT1S --filter "*2025042*"
 ```
 
+### SSS / Density CNR
+```bash
+copernicusmarine get --dataset-id cmems_obs-mob_glo_phy-sss_my_multi_P1D --filter "*2019*"
+```
+
 ```bash
 dfilter="20250420*"
 list_alti="c2n h2b j2g j3n al alg s3a s3b s6a-lr s6a-hr swon swonc"
