@@ -1,17 +1,24 @@
-# CMEMS
-## Satellite
-### Geostrophic current
+
+# Satellite
+## Geostrophic current
 ```bash
 copernicusmarine get --dataset-id cmems_obs-sl_glo_phy-ssh_nrt_allsat-l4-duacs-0.125deg_P1D --filter "*2025042*"
 ```
-### Total Current
-
-### Altimeter
+## Total Current
+### Hourly
+```bash
+copernicusmarine get --dataset-id cmems_obs-mob_glo_phy-cur_my_0.25deg_PT1H-i --filter "*2025042*"
+```
+### Daily
+```bash
+copernicusmarine get --dataset-id cmems_obs-mob_glo_phy-cur_my_0.25deg_P1D-m --filter "*2025042*"
+```
+## Altimeter
 ```bash
 copernicusmarine get --dataset-id cmems_obs-sl_glo_phy-ssh_nrt_c2n-l3-duacs_PT1S --filter "*2025042*"
 ```
 
-### SSS / Density CNR
+## SSS / Density CNR
 ```bash
 copernicusmarine get --dataset-id cmems_obs-mob_glo_phy-sss_my_multi_P1D --filter "*2019*"
 ```
@@ -33,12 +40,12 @@ done ;
 done;
 done
 ```
-## Model
-### GLORYS
+# Model
+## GLORYS
 ```bash
 copernicusmarine subset --dataset-id cmems_mod_glo_phy-cur_anfc_0.083deg_PT6H-i --variable uo  --variable vo --minimum-longitude -30 --maximum-longitude 25 --minimum-latitude 30 --maximum-latitude 75 --minimum-depth 0.49402499198913574 --maximum-depth 0.49402499198913574 --start-datetime 2025-04-20T00:00:00 --end-datetime 2025-04-29T00:00:00
 ```
-### ERA5
+## ERA5
 ```python
 import cdsapi
 # List of days
@@ -79,33 +86,51 @@ for sday in lday:
 	client.retrieve(dataset, request, target)
 ```
 
-## INSITU
-### SVP
+# INSITU
+## SVP
+### NRT
 ```bash
 copernicusmarine get --dataset-id cmems_obs-ins_glo_phy-cur_nrt_drifter_irr --dataset-part history
 ```
-### ARGO TRAJECTORIES NRT
+### DT 
+```bash
+copernicusmarine get --dataset-id cmems_obs-ins_glo_phy-cur_my_drifter_PT1H
+```
+
+## ARGO 
+### TRAJECTORIES NRT
 ```bash
 copernicusmarine get --dataset-id cmems_obs-ins_glo_phy-cur_nrt_argo_irr --dataset-part history
 ```
-### ARGO PROFILES
+
+### TRAJECTORIES DT ws corrected
+```bash
+copernicus get --dataset-id cmems_obs-ins_glo_phy-cur_my_argo_irr --dataset-part history
+```
+###  PROFILES
 ```bash
 copernicusmarine get --dataset-id cmems_obs-ins_glo_phybgcwav_mynrt_na_irr--dataset-part history
 ```
 
-### ADCP DT
+## ADCP DT
 ```bash
 copernicus get --dataset-id cmems_obs-ins_glo_phy-cur_my_adcp_irr --dataset-part history
 ```
 
-### ARGO TRAJECTORIES DT ws corrected
-```bash
-copernicus get --dataset-id cmems_obs-ins_glo_phy-cur_my_argo_irr --dataset-part history
-```
-
-### GLIDER DT
+## GLIDER DT
 ```bash 
 copernicus get --dataset-id cmems_obs-ins_glo_phy-cur_my_glider_irr --dataset-part history
+```
+
+## Radar HF
+### Total
+
+```bash 
+copernicus get --dataset-id cmems_obs-ins_glo_phy-cur_my_radar-total_irr
+```
+### Radial
+```bash 
+copernicus get --dataset-id cmems_obs-ins_glo_phy-cur_my_radar-radial_irr
 ```
 
 # OceanColor
