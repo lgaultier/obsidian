@@ -40,3 +40,27 @@ Monitoring the loss function during training helps diagnose issues and make nece
 ## Conclusion
 
 Applying these best practices can improve the training process and performance of linear regression models in PyTorch. By carefully managing learning rates, standardizing data, using validation, and monitoring the training process, you’ll set a strong foundation for building more complex machine-learning models in PyTorch.
+
+# Activation FUnction
+
+![[Pasted image 20260111164544.png]]
+
+Think of activation functions as the “flavor enhancers” in your recipe. They decide whether a neuron’s output should be passed forward or not. Without them, a neural network would just be a stack of linear equations.
+
+Common activation functions include:
+
+- **ReLU (Rectified Linear Unit):** Passes positive values as-is, setting negative values to zero.
+- **Sigmoid:** Squeezes outputs into a range between 0 and 1, useful for probabilities.
+- **Softmax:** Converts outputs into probabilities for multi-class classification.
+# Loss Function
+
+![[Pasted image 20260111164828.png]]
+# Back Propagation and Optimizer
+Backpropagation is where the magic happens — it’s like tweaking your recipe after a taste test:
+
+1. The network calculates the error (loss) and determines which parts of the recipe (weights and biases) need adjustment.
+2. Gradients (like feedback on taste) are computed to show how much each parameter contributed to the error.
+3. An **optimizer** (e.g., SGD or Adam) adjusts the weights and biases to reduce the error in the next iteration.
+
+![[Pasted image 20260111164953.png]]
+

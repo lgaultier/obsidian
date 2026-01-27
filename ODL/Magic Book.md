@@ -320,17 +320,6 @@ sudo mdutil -E
 ### Figma
 
 n      
-# Tips Datarmor
-## Create Jupyter Environment
-```bash
-module load anaconda 
-conda create -n skim_plot python=3.9 
-conda activate skim_plot 
-conda install matplotlib cartopy ... 
-# check that condo-env path is in .condarc 
-conda install ipykernel 
-source deactivate
-```
 
 # Install WIndows
 
@@ -341,7 +330,9 @@ source deactivate
 ## NetCDF tools
 
 # ODL
+## VPN
 
+IP maison de location:176.145.120.87
 ## Caldav
 
 * Username: prénom.nom  
@@ -364,3 +355,28 @@ source deactivate
 
 ### lucile.gaultier
 * imap: ssl0.ovh.net
+
+# Connect to servors:
+## Datarmor
+### Create Jupyter Environment
+```bash
+module load anaconda 
+conda create -n skim_plot python=3.9 
+conda activate skim_plot 
+conda install matplotlib cartopy ... 
+# check that condo-env path is in .condarc 
+conda install ipykernel 
+source deactivate
+```
+## Jackzilla
+## Trex
+# Tips specific to tools
+## Overleaf
+If not compiling remove package cellspace: \usepackage{cellspace}
+## Git
+## Tmux
+
+## SEAScope
+vi ~/Library/Logs/com.oceandatalab.SEAScope/seascope.log
+## Visual Studio Code
+To switch between views, **press Ctrl+Shift+V in the editor**. You can view the preview side-by-side (Ctrl+K V) with the file you are editing and see changes reflected in real-time as you edit.
