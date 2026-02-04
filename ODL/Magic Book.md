@@ -357,6 +357,12 @@ IP maison de location:176.145.120.87
 * imap: ssl0.ovh.net
 
 # Connect to servors:
+## Check connection
+#### Get external IP
+```bash
+curl ifconfig.co
+```
+
 ## Datarmor
 ### Create Jupyter Environment
 ```bash
@@ -380,3 +386,13 @@ If not compiling remove package cellspace: \usepackage{cellspace}
 vi ~/Library/Logs/com.oceandatalab.SEAScope/seascope.log
 ## Visual Studio Code
 To switch between views, **press Ctrl+Shift+V in the editor**. You can view the preview side-by-side (Ctrl+K V) with the file you are editing and see changes reflected in real-time as you edit.
+
+## Screen
+
+```bash
+screen -ls
+screen -S [new-session]
+screen -r [resume-session]
+screen -XS [pid] quit
+```
+
