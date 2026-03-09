@@ -357,13 +357,35 @@ IP maison de location:176.145.120.87
 * imap: ssl0.ovh.net
 
 # Connect to servors:
-## Check connection
-#### Get external IP
+## Connection
+### Get external IP
 ```bash
 curl ifconfig.co
 ```
+### Jupyter access
+On remote machine:
+```bash
+jupyter lab --port=9876 --ip=127.9.9.1 --no-browser
+```
 
+On local machine:
+```bash 
+ssh -L 9876:localhost:9876 alfheim
+```
+Open the server on the local machine: http://127.0.0.1:9876/lab
 ## Datarmor
+```
+Host datarmor  
+        AddressFamily inet  
+        HostName datarmor-access  
+        User lgaultie  
+
+Host ifredgx  
+        AddressFamily inet  
+        HostName 134.246.184.21  
+        User lgaultie  
+        ProxyJump datarmor
+```
 ### Create Jupyter Environment
 ```bash
 module load anaconda 
@@ -374,6 +396,8 @@ conda install matplotlib cartopy ...
 conda install ipykernel 
 source deactivate
 ```
+
+Installed kernelspec s3ng_env in /home/eh/gaultierl/.local/share/jupyter/kernels/s3ng_env
 ## Jackzilla
 ## Trex
 # Tips specific to tools
@@ -383,7 +407,21 @@ If not compiling remove package cellspace: \usepackage{cellspace}
 ## Tmux
 
 ## SEAScope
+
+### Debug on MAC
+```bash
+⚓ open -a SEAScope --args -f debug
+```
 vi ~/Library/Logs/com.oceandatalab.SEAScope/seascope.log
+
+### SEAScope movie
+Rappel raccourcis clavier:  
+  
+F plein écran on/off  
+H cache l'interface on/off  
+L Verrouille le zoom de la worldmap pour qu'elle soit toujours visible entièrement (peu importe la taille de la fenêtre) on/off
+
+ 
 ## Visual Studio Code
 To switch between views, **press Ctrl+Shift+V in the editor**. You can view the preview side-by-side (Ctrl+K V) with the file you are editing and see changes reflected in real-time as you edit.
 
@@ -396,3 +434,53 @@ screen -r [resume-session]
 screen -XS [pid] quit
 ```
 
+# Download data
+## Using AWS
+### List the files
+
+```bash
+aws s3 ls s3://noaa-goes17/ABI-L1b-RadC/2023/004/14/ --no-sign-request
+```
+
+### Save the listing to a file
+
+```bash
+aws s3 ls s3://noaa-goes17/ABI-L1b-RadC/2023/004/14/ --no-sign-request > file_listing.txt
+```
+
+### Download all files in that directory
+
+
+```bash
+aws s3 cp s3://noaa-goes17/ABI-L1b-RadC/2023/004/14/ . --recursive --no-sign-request
+```
+
+**Or download to a specific folder:**
+
+bash
+
+```bash
+aws s3 cp s3://noaa-goes17/ABI-L1b-RadC/2023/004/14/ ./goes17_data/ --recursive --no-sign-request
+```
+
+The `--no-sign-request` flag is key — it lets you access the public bucket without AWS credentials.
+
+If you don't have the AWS CLI installed:
+
+bash
+
+```bash
+# On Ubuntu/Debian
+sudo apt install awscli
+
+# Or via pip
+pip install awscli
+```
+
+
+# Python
+## Pip 
+```bash
+pip cache purge
+
+```
