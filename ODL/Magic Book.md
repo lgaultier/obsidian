@@ -329,6 +329,8 @@ n
 
 ## NetCDF tools
 
+##screeshots / video recording
+Windows+ shift + S
 # ODL
 ## VPN
 
@@ -362,15 +364,19 @@ IP maison de location:176.145.120.87
 ```bash
 curl ifconfig.co
 ```
-### Jupyter access
+### Notebook access (jupyter / marimo)
 On remote machine:
+* start Jupyter
 ```bash
-jupyter lab --port=9876 --ip=127.9.9.1 --no-browser
+jupyter lab --port=9876 --ip=127.0.0.1 --no-browser
 ```
-
+* start Marimo
+```bash
+ marimo edit --host 0.0.0.0 --port 9877
+```
 On local machine:
 ```bash 
-ssh -L 9876:localhost:9876 alfheim
+ssh -L 9876:localhost:9876 -L 9877:localhost:9877 alfheim
 ```
 Open the server on the local machine: http://127.0.0.1:9876/lab
 ## Datarmor
@@ -380,9 +386,9 @@ Host datarmor
         HostName datarmor-access  
         User lgaultie  
 
-Host ifredgx  
+Host computer101  
         AddressFamily inet  
-        HostName 134.246.184.21  
+        HostName compute-101-23 
         User lgaultie  
         ProxyJump datarmor
 ```
@@ -400,6 +406,162 @@ source deactivate
 Installed kernelspec s3ng_env in /home/eh/gaultierl/.local/share/jupyter/kernels/s3ng_env
 ## Jackzilla
 ## Trex
+
+## Tunnel blick
+### Deolen Main
+```
+##############################################
+# Sample client-side OpenVPN 2.0 config file #
+# for connecting to multi-client server.     #
+#                                            #
+# This configuration can be used by multiple #
+# clients, however each client should have   #
+# its own cert and key files.                #
+#                                            #
+# On Windows, you might want to rename this  #
+# file so it has a .ovpn extension           #
+##############################################
+
+# Specify that we are a client and that we
+# will be pulling certain config file directives
+# from the server.
+client
+ 
+# Use the same setting as you are using on
+# the server.
+# On most systems, the VPN will not function
+# unless you partially or fully disable
+# the firewall for the TUN/TAP interface.
+dev tap
+; 00:16:3E:24:E8:80
+;dev tun
+
+# Windows needs the TAP-Win32 adapter name
+# from the Network Connections panel
+# if you have more than one.  On XP SP2,
+# you may need to disable the firewall
+# for the TAP adapter.
+;dev-node MyTap
+
+# Are we connecting to a TCP or
+# UDP server?  Use the same setting as
+# on the server.
+proto tcp-client
+
+;proto udp
+
+# The hostname/IP and port of the server.
+# You can have multiple remote entries
+# to load balance between the servers.
+remote deolen-bouygues.odl.bzh 443
+;remote my-server-2 1194
+;remote 176.183.165.109 443
+
+# Choose a random host from the remote
+# list for load-balancing.  Otherwise
+# try hosts in the order specified.
+;remote-random
+lladdr 00:16:3E:24:E8:80
+dhcp-option DNS 192.168.177.247
+dhcp-option DNS 1.1.1.1
+dhcp-option DNS 1.0.0.1
+
+# Keep trying indefinitely to resolve the
+# host name of the OpenVPN server.  Very useful
+# on machines which are not permanently connected
+# to the internet such as laptops.
+resolv-retry infinite
+
+# Most clients don't need to bind to
+# a specific local port number.
+nobind
+
+# Downgrade privileges after initialization (non-Windows only)
+;user nobody
+;group nobody
+
+# Try to preserve some state across restarts.
+persist-key
+;persist-tun
+
+# If you are connecting through an
+# HTTP proxy to reach the actual OpenVPN
+# server, put the proxy server/IP and
+# port number here.  See the man page
+# if your proxy server requires
+# authentication.
+;http-proxy-retry # retry on connection failures
+;http-proxy [proxy server] [proxy port #]
+  
+# Wireless networks often produce a lot
+# of duplicate packets.  Set this flag
+# to silence duplicate packet warnings.
+;mute-replay-warnings
+  
+# SSL/TLS parms.
+# See the server config file for more
+# description.  It's best to use
+# a separate .crt/.key file pair
+# for each client.  A single ca
+# file can be used for all clients.
+ca odl_ca_cert.pem
+cert lgaultier@oceandatalab.com_cert.pem
+key lgaultier@oceandatalab.com_key.pem
+
+# Verify server certificate by checking that the
+# certicate has the correct key usage set.
+# This is an important precaution to protect against
+# a potential attack discussed here:
+#  http://openvpn.net/howto.html#mitm
+#
+# To use this feature, you will need to generate
+# your server certificates with the keyUsage set to
+#   digitalSignature, keyEncipherment
+# and the extendedKeyUsage to
+#   serverAuth
+# EasyRSA can do this for you.
+;remote-cert-tls server
+  
+# If a tls-auth key is used on the server
+# then every client must also have the key.
+
+auth SHA512
+tls-auth ta.key 1
+  
+# Select a cryptographic cipher.
+# If the cipher option is used on the server
+# then you must also specify it here.
+# Note that 2.4 client/server will automatically
+# negotiate AES-256-GCM in TLS mode.
+# See also the ncp-cipher option in the manpage
+cipher AES-256-CBC
+data-ciphers AES-256-CBC
+
+# Enable compression on the VPN link.
+# Don't enable this unless it is also
+# enabled in the server config file.
+compress lzo
+
+# Set log file verbosity.
+verb 3
+
+# Silence repeating messages
+mute 10
+
+route-delay 15
+up-delay
+script-security 1
+up "/bin/sh -c '/usr/sbin/ipconfig set $dev DHCP'"
+```
+### Deolen Loc
+```
+remote 176.145.120.87 443
+```
+
+### Deolen OVH
+```
+remote deolen.odl.bzh 443
+```
 # Tips specific to tools
 ## Overleaf
 If not compiling remove package cellspace: \usepackage{cellspace}
@@ -477,6 +639,12 @@ sudo apt install awscli
 pip install awscli
 ```
 
+## Using CMEMS toolbox
+```bash
+pip install copernicus-marine
+```
+
+## 
 
 # Python
 ## Pip 
@@ -484,3 +652,95 @@ pip install awscli
 pip cache purge
 
 ```
+
+
+# Deploy application on iOS / Android
+## for iOs
+
+### Install
+Install Xcode using the App Store
+Toolchain
+
+```bash
+brew install autoconf automake libtool pkg-config
+brew link libtool
+```
+
+```bash 
+toolchain build hostpython3
+toolchain build python3 kivy 
+toolchain build numpy
+toolchain status
+```
+### Install dependancies
+```bash
+toolchain pip install kivy_garden.mapview             
+toolchain pip install garmin-fit-sdk
+toolchain pip install requests
+toolchain build pillow
+pip install --force-reinstall cookiecutter
+```
+## Create app
+```bash
+toolchain create Windlog /Users/lgaultier/windsurf_app
+```
+
+## for Android
+
+### Install 
+Install buildozer and its dependencies
+Android requires java to compile
+```bash
+brew install openjdk@17
+sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
+echo 'export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"' >> ~/.zshrc
+```
+
+```bash
+pip install buildozer setuptools
+brew install git ffmpeg readline sqlite xz zlib 
+```
+Resole openssl1.1 legacy on android
+```bash
+brew install openssl@3
+export CFLAGS="-I$(brew --prefix openssl@3)/include" 
+export LDFLAGS="-L$(brew --prefix openssl@3)/lib" exportGRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1 
+export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
+```
+
+Edit prerequisites.py file:
+```bash
+find .buildozer -name "prerequisites.py" 
+.buildozer/android/platform/python-for-android/pythonforandroid/prerequisites.py
+```
+
+### Initialize repo
+If no spec file:
+```
+buildozer init
+```
+### Configure the `.spec` File
+
+Open `buildozer.spec` in a text editor and update these key fields:
+- `title`: Your app's name.
+- `package.name`: A unique name (e.g., `myapp`).
+- `package.domain`: Usually your website in reverse (e.g., `org.yourname`).
+- `requirements`: List every library your app uses. At minimum: `python3, kivy`. If you use others (like `requests` or `pandas`), add them here.
+- `source.include_exts`: Ensure `.py`, `.kv`, and any image/asset extensions you use are listed.
+
+### Build the apk
+```bash
+buildozer android debug
+```
+to install it, settings > App > Special App Access > Install Unknown apps
+
+### Debug using Wifi
+
+If you hate cables but want the convenience of the `run` command, you can actually connect your phone to Buildozer via Wi-Fi using **ADB** (Android Debug Bridge).
+
+1. Connect via USB _one last time_.
+2. Run `adb tcpip 5555`.
+3. Disconnect the cable.
+4. Run `adb connect [YOUR_PHONE_IP]`.
+5. Now, `buildozer android debug deploy run` will work wirelessly!

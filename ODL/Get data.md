@@ -45,6 +45,10 @@ done
 ```bash
 copernicusmarine subset --dataset-id cmems_mod_glo_phy-cur_anfc_0.083deg_PT6H-i --variable uo  --variable vo --minimum-longitude -30 --maximum-longitude 25 --minimum-latitude 30 --maximum-latitude 75 --minimum-depth 0.49402499198913574 --maximum-depth 0.49402499198913574 --start-datetime 2025-04-20T00:00:00 --end-datetime 2025-04-29T00:00:00
 ```
+
+```bash
+ copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --variable so --variable zos --variable mlotst --variable thetao --minimum-longitude -100 --maximum-longitude 40 --minimum-latitude -10 --maximum-latitude 90 --minimum-depth 0.49402499198913574 --maximum-depth 0.49402499198913574 --start-datetime 2022-11-01T00:00:00 --end-datetime 2024-01-01T00:00:00
+```
 ## ERA5
 ```python
 import cdsapi
@@ -86,6 +90,10 @@ for sday in lday:
 	client.retrieve(dataset, request, target)
 ```
 
+## MLD GLORYS
+```
+copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --start-datetime 2010-01-01 --end-datetime 2011-01-01 --variable mlotst
+```
 # INSITU
 ## SVP
 ### NRT

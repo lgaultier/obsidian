@@ -9,10 +9,10 @@
 | L3 LR 2km Expert       | ssha_unedited (SLA)                       | OK                           | NRT      | OK                               |
 | L3 LR 2km Expert       | SSH (ssha_unedited + MDT)                 | to check                     | NRT      |                                  |
 | L3 LR 2km Expert       | ugos_unfiltered, vgos_unfiltered          | check filtered vs unfiltered | NRT      |                                  |
-| L2 LR Wind Wave        | swh_karin                                 | OK               | Samples  |                                  |
-| L2 LR Wind Wave        | wind_speed_karin                          | OK                | Samples  |                                  |
-| L3 LR Wind Wave Expert | Efxfy_SWOT (SWOT)                         | OK                | Samples  |                                  |
-| L3 LR Wind Wave Expert | H18, L18, theta18 (Partition as firework) | OK               | Samples  |                                  |
+| L2 LR Wind Wave        | swh_karin                                 | OK                           | Samples  |                                  |
+| L2 LR Wind Wave        | wind_speed_karin                          | OK                           | Samples  |                                  |
+| L3 LR Wind Wave Expert | Efxfy_SWOT (SWOT)                         | OK                           | Samples  |                                  |
+| L3 LR Wind Wave Expert | H18, L18, theta18 (Partition as firework) | OK                           | Samples  |                                  |
 |                        |                                           |                              |          |                                  |
  Test cases:
  Tropical Storm Erin: End of August, early September 2025
